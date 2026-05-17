@@ -78,7 +78,7 @@
             width: 94%;
             max-width: 1450px;
             margin: 0 auto;
-            padding-top: 40px; /* Исправлено: убрали гигантский отступ в 220px */
+            padding-top: 40px;
             padding-bottom: 40px;
         }
 
@@ -219,6 +219,25 @@
             box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25);
         }
 
+        /* ФИЧА: Стиль для подсветки текущего дня */
+        .day-card.current-day {
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+            position: relative;
+        }
+        .day-card.current-day::after {
+            content: "Сегодня";
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #38bdf8;
+            color: #07111f;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 2px 10px;
+            border-radius: 10px;
+        }
+
         .day-card h3 {
             color: #7dd3fc;
             margin-bottom: 6px;
@@ -237,6 +256,7 @@
             padding: 12px 14px;
             margin-bottom: 10px;
             line-height: 1.5;
+            word-wrap: break-word; /* Безопасный перенос длинных названий предметов */
         }
 
         .lesson span {
@@ -300,6 +320,7 @@
             flex-wrap: wrap;
             gap: 12px;
             margin-bottom: 20px;
+            align-items: center;
         }
 
         .form-block input,
@@ -313,6 +334,23 @@
             padding: 14px;
             font-size: 1rem;
             outline: none;
+        }
+
+        /* ФИЧА: Красивая кастомная кнопка выбора файла */
+        .file-input-label {
+            display: inline-block;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            color: #94a3b8;
+        }
+        .file-input-label:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
         }
 
         .form-block textarea {
@@ -387,87 +425,28 @@
 
         /* ================= MOBILE FIX ================= */
         @media(max-width: 900px){
-            header {
-                position: relative;
-                padding: 18px;
-            }
-            main {
-                padding-top: 20px;
-            }
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-            nav button {
-                width: 100%;
-                font-size: 0.95rem;
-                padding: 14px;
-            }
-            .banner {
-                padding: 35px 20px;
-            }
-            .banner h2 {
-                font-size: 2rem;
-                line-height: 1.2;
-            }
-            .banner p {
-                font-size: 1rem;
-            }
-            .countdown-card {
-                padding: 25px 15px;
-            }
-            #countdown {
-                font-size: 1.4rem;
-                line-height: 1.5;
-            }
-            .card {
-                padding: 20px;
-                border-radius: 24px;
-            }
-            .section-title {
-                font-size: 1.6rem;
-            }
-            .teacher-box {
-                flex-direction: column;
-                text-align: center;
-            }
-            .teacher-box img {
-                width: 100%;
-                max-width: 260px;
-                height: auto;
-            }
-            .schedule-grid {
-                grid-template-columns: 1fr;
-            }
-            .day-card {
-                padding: 18px;
-            }
-            .lesson {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-            .lesson span {
-                float: none;
-                display: block;
-                margin-top: 4px;
-            }
-            .exam-grid {
-                grid-template-columns: 1fr;
-            }
-            .form-block {
-                flex-direction: column;
-            }
-            .form-block input,
-            .form-block textarea,
-            .form-block button {
-                width: 100%;
-            }
-            .main-photo img {
-                max-height: 320px;
-            }
-            footer {
-                font-size: 0.9rem;
-            }
+            header { position: relative; padding: 18px; }
+            main { padding-top: 20px; }
+            nav { flex-direction: column; gap: 10px; }
+            nav button { width: 100%; font-size: 0.95rem; padding: 14px; }
+            .banner { padding: 35px 20px; }
+            .banner h2 { font-size: 2rem; line-height: 1.2; }
+            .banner p { font-size: 1rem; }
+            .countdown-card { padding: 25px 15px; }
+            #countdown { font-size: 1.4rem; line-height: 1.5; }
+            .card { padding: 20px; border-radius: 24px; }
+            .section-title { font-size: 1.6rem; }
+            .teacher-box { flex-direction: column; text-align: center; }
+            .teacher-box img { width: 100%; max-width: 260px; height: auto; }
+            .schedule-grid { grid-template-columns: 1fr; }
+            .day-card { padding: 18px; }
+            .lesson { font-size: 0.95rem; line-height: 1.6; }
+            .lesson span { float: none; display: block; margin-top: 4px; }
+            .exam-grid { grid-template-columns: 1fr; }
+            .form-block { flex-direction: column; }
+            .form-block input, .form-block textarea, .form-block button, .file-input-label { width: 100%; }
+            .main-photo img { max-height: 320px; }
+            footer { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -478,7 +457,6 @@
         <h1>10 «Л» класс</h1>
         <p>МБОУ СШ №61</p>
     </div>
-    <!-- Исправлено: Добавлен отсутствовавший блок навигации -->
     <nav>
         <button class="tab-btn active" data-tab="home">Главная</button>
         <button class="tab-btn" data-tab="schedule">Расписание</button>
@@ -530,7 +508,8 @@
         <div class="card">
             <h2 class="section-title">Расписание</h2>
             <div class="schedule-grid">
-                <div class="day-card">
+                <!-- ФИЧА: Добавлены id="day-1", id="day-2" и т.д. для скрипта подсветки дней -->
+                <div class="day-card" id="day-1">
                     <h3>Понедельник</h3>
                     <p class="date">30.03.2026</p>
                     <div class="lesson empty">1 урок —</div>
@@ -542,7 +521,7 @@
                     <div class="lesson">7 урок — Алгебра <span>102</span></div>
                 </div>
 
-                <div class="day-card">
+                <div class="day-card" id="day-2">
                     <h3>Вторник</h3>
                     <p class="date">31.03.2026</p>
                     <div class="lesson empty">1 урок —</div>
@@ -555,7 +534,7 @@
                     <div class="lesson">8 урок — Физика <span>202</span></div>
                 </div>
 
-                <div class="day-card">
+                <div class="day-card" id="day-3">
                     <h3>Среда</h3>
                     <p class="date">01.04.2026</p>
                     <div class="lesson empty">1 урок —</div>
@@ -568,7 +547,7 @@
                     <div class="lesson">8 урок — Геометрия <span>201</span></div>
                 </div>
 
-                <div class="day-card">
+                <div class="day-card" id="day-4">
                     <h3>Четверг</h3>
                     <p class="date">02.04.2026</p>
                     <div class="lesson empty">1 урок —</div>
@@ -581,7 +560,7 @@
                     <div class="lesson">8 урок — Ин.яз <span>-/304</span></div>
                 </div>
 
-                <div class="day-card">
+                <div class="day-card" id="day-5">
                     <h3>Пятница</h3>
                     <p class="date">03.04.2026</p>
                     <div class="lesson empty">1 урок —</div>
@@ -610,7 +589,6 @@
                     </ul>
                     <a href="#">Материалы</a>
                 </div>
-
                 <div class="exam-card">
                     <h3>📐 Математика</h3>
                     <ul>
@@ -621,7 +599,6 @@
                     </ul>
                     <a href="#">Материалы</a>
                 </div>
-
                 <div class="exam-card">
                     <h3>🌍 Обществознание</h3>
                     <ul>
@@ -632,7 +609,6 @@
                     </ul>
                     <a href="#">Материалы</a>
                 </div>
-
                 <div class="exam-card">
                     <h3>⚛ Физика</h3>
                     <ul>
@@ -653,7 +629,11 @@
             <h2 class="section-title">Галерея</h2>
             <div class="form-block">
                 <input type="text" id="galleryTitle" placeholder="Название фото">
-                <input type="text" id="galleryImage" placeholder="Имя файла">
+                <!-- ФИЧА: Заменили текстовый инпут на реальную загрузку файла -->
+                <label class="file-input-label">
+                    📎 Выбрать фото
+                    <input type="file" id="galleryFile" accept="image/*" style="display: none;" onchange="handleFileSelect(this)">
+                </label>
                 <button onclick="addGallery()">Добавить</button>
             </div>
             <div id="galleryItems" class="items"></div>
@@ -691,6 +671,19 @@
 </footer>
 
 <script>
+    /* ФИЧА: СЕКРЕТНЫЙ ПАРОЛЬ ДЛЯ РЕДАКТИРОВАНИЯ (Староста / Учитель) */
+    const ADMIN_PASSWORD = "10L61"; 
+
+    function checkAdminAccess() {
+        const pass = prompt("Введите пароль администратора для изменения данных:");
+        if (pass === ADMIN_PASSWORD) {
+            return true;
+        } else {
+            alert("Неверный пароль! Доступ запрещен.");
+            return false;
+        }
+    }
+
     /* ================= TABS ================= */
     const buttons = document.querySelectorAll('.tab-btn');
     const tabs = document.querySelectorAll('.tab');
@@ -711,7 +704,6 @@
         const now = new Date();
         const diff = holidayDate - now;
 
-        // Предотвращение отрицательных значений, если каникулы наступили
         if (diff <= 0) {
             document.getElementById('countdown').innerHTML = "Ура! Каникулы начались!";
             return;
@@ -725,9 +717,18 @@
         document.getElementById('countdown').innerHTML =
             `${days} дн. ${hours} ч. ${minutes} мин. ${seconds} сек.`;
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    /* ФИЧА: ПОДСВЕТКА ТЕКУЩЕГО ДНЯ НЕДЕЛИ */
+    function highlightCurrentDay() {
+        const currentDayIndex = new Date().getDay(); // 0 - ВС, 1 - ПН, ... 6 - СБ
+        if (currentDayIndex >= 1 && currentDayIndex <= 5) {
+            const currentCard = document.getElementById(`day-${currentDayIndex}`);
+            if (currentCard) currentCard.classList.add('current-day');
+        }
+    }
+    highlightCurrentDay();
 
     /* ================= STORAGE ================= */
     let gallery = JSON.parse(localStorage.getItem('gallery')) || [];
@@ -735,9 +736,21 @@
     let news = JSON.parse(localStorage.getItem('news')) || [];
 
     /* ================= GALLERY ================= */
-    function saveGallery() {
-        localStorage.setItem('gallery', JSON.stringify(gallery));
+    let tempImageData = ""; // Временное хранилище для Base64 строки картинки
+
+    function handleFileSelect(input) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                tempImageData = e.target.result; // Конвертируем фото в строку текста
+                document.querySelector('.file-input-label').textContent = "✅ Фото загружено";
+            }
+            reader.readAsDataURL(file);
+        }
     }
+
+    function saveGallery() { localStorage.setItem('gallery', JSON.stringify(gallery)); }
 
     function renderGallery() {
         const container = document.getElementById('galleryItems');
@@ -755,31 +768,33 @@
 
     function addGallery() {
         const title = document.getElementById('galleryTitle').value.trim();
-        const image = document.getElementById('galleryImage').value.trim();
 
-        if (!title || !image) {
-            alert('Заполните поля');
+        if (!title || !tempImageData) {
+            alert('Введите название и выберите фото!');
             return;
         }
 
-        gallery.push({ title, image });
+        if (!checkAdminAccess()) return; // Проверка пароля
+
+        gallery.push({ title, image: tempImageData });
         saveGallery();
         renderGallery();
 
         document.getElementById('galleryTitle').value = '';
-        document.getElementById('galleryImage').value = '';
+        document.getElementById('galleryFile').value = '';
+        tempImageData = "";
+        document.querySelector('.file-input-label').textContent = "📎 Выбрать фото";
     }
 
     function deleteGallery(index) {
+        if (!checkAdminAccess()) return; // Проверка пароля
         gallery.splice(index, 1);
         saveGallery();
         renderGallery();
     }
 
     /* ================= HOMEWORK ================= */
-    function saveHomework() {
-        localStorage.setItem('homework', JSON.stringify(homework));
-    }
+    function saveHomework() { localStorage.setItem('homework', JSON.stringify(homework)); }
 
     function renderHomework() {
         const container = document.getElementById('hwItems');
@@ -796,29 +811,24 @@
 
     function addHomework() {
         const text = document.getElementById('hwText').value.trim();
-
-        if (!text) {
-            alert('Введите текст');
-            return;
-        }
+        if (!text) { alert('Введите текст'); return; }
+        if (!checkAdminAccess()) return; // Проверка пароля
 
         homework.push(text);
         saveHomework();
         renderHomework();
-
         document.getElementById('hwText').value = '';
     }
 
     function deleteHomework(index) {
+        if (!checkAdminAccess()) return; // Проверка пароля
         homework.splice(index, 1);
         saveHomework();
         renderHomework();
     }
 
     /* ================= NEWS ================= */
-    function saveNews() {
-        localStorage.setItem('news', JSON.stringify(news));
-    }
+    function saveNews() { localStorage.setItem('news', JSON.stringify(news)); }
 
     function renderNews() {
         const container = document.getElementById('newsItems');
@@ -835,20 +845,17 @@
 
     function addNews() {
         const text = document.getElementById('newsText').value.trim();
-
-        if (!text) {
-            alert('Введите текст');
-            return;
-        }
+        if (!text) { alert('Введите текст'); return; }
+        if (!checkAdminAccess()) return; // Проверка пароля
 
         news.push(text);
         saveNews();
         renderNews();
-
         document.getElementById('newsText').value = '';
     }
 
     function deleteNews(index) {
+        if (!checkAdminAccess()) return; // Проверка пароля
         news.splice(index, 1);
         saveNews();
         renderNews();
