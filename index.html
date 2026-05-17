@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 «Л» | МБОУ СШ №61</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+
+    background:
+        radial-gradient(circle at top left,#2563eb33,transparent 25%),
+        radial-gradient(circle at bottom right,#38bdf833,transparent 25%),
+        #07111f;
+
+    color:white;
+
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(10,15,30,0.8);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.logo h1{
+    font-size:2.5rem;
+    margin-bottom:8px;
+}
+
+.logo p{
+    color:#94a3b8;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+nav button{
+    border:none;
+
+    padding:14px 22px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.06);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.25s;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+nav button:hover,
+nav button.active{
+    background:#2563eb;
+    transform:translateY(-2px);
+}
+
+/* ================= MAIN ================= */
+
+main{
+    width:94%;
+    max-width:1450px;
+    margin:35px auto;
+}
+
+.tab{
+    display:none;
+    animation:fade 0.3s ease;
+}
+
+.tab.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= CARDS ================= */
+
+.card{
+    background:rgba(15,23,42,0.78);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+
+    padding:28px;
+
+    margin-bottom:28px;
+}
+
+.section-title{
+    font-size:2rem;
+    margin-bottom:24px;
+    color:#7dd3fc;
+}
+
+/* ================= BANNER ================= */
+
+.banner{
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+    border-radius:32px;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    box-shadow:0 15px 40px rgba(37,99,235,0.35);
+}
+
+.banner h2{
+    font-size:3rem;
+    margin-bottom:12px;
+}
+
+.banner p{
+    font-size:1.1rem;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown-card{
+    margin-bottom:30px;
+
+    background:linear-gradient(135deg,#1d4ed8,#38bdf8);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(37,99,235,0.3);
+}
+
+.countdown-card h2{
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+#countdown{
+    font-size:2.6rem;
+    font-weight:bold;
+}
+
+/* ================= PHOTO ================= */
+
+.main-photo{
+    background:#0f172a;
+
+    border-radius:24px;
+
+    padding:16px;
+
+    text-align:center;
+}
+
+.main-photo img{
+    width:100%;
+    max-height:550px;
+    object-fit:contain;
+    border-radius:18px;
+}
+
+/* ================= TEACHER ================= */
+
+.teacher-box{
+    display:flex;
+    gap:25px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.teacher-box img{
+    width:190px;
+    height:240px;
+    object-fit:cover;
+
+    border-radius:24px;
+
+    border:3px solid #3b82f6;
+}
+
+.teacher-box h3{
+    font-size:1.8rem;
+    margin-bottom:10px;
+    color:#7dd3fc;
+}
+
+.teacher-box p{
+    line-height:1.7;
+}
+
+/* ================= SCHEDULE ================= */
+
+.schedule-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:24px;
+}
+
+.day-card{
+    background:linear-gradient(180deg,#0f172a,#111c33);
+
+    border-radius:24px;
+
+    padding:22px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.3s;
+}
+
+.day-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(59,130,246,0.25);
+}
+
+.day-card h3{
+    color:#7dd3fc;
+    margin-bottom:6px;
+    font-size:1.5rem;
+}
+
+.date{
+    color:#94a3b8;
+    margin-bottom:18px;
+}
+
+.lesson{
+    background:rgba(255,255,255,0.05);
+
+    border-left:4px solid #3b82f6;
+
+    border-radius:14px;
+
+    padding:12px 14px;
+
+    margin-bottom:10px;
+
+    line-height:1.5;
+}
+
+.lesson span{
+    float:right;
+    color:#7dd3fc;
+    font-weight:bold;
+}
+
+.lesson.empty{
+    opacity:0.45;
+}
+
+/* ================= EXAM ================= */
+
+.exam-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+}
+
+.exam-card{
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    transition:0.3s;
+}
+
+.exam-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 30px rgba(59,130,246,0.25);
+}
+
+.exam-card h3{
+    margin-bottom:18px;
+    color:#7dd3fc;
+}
+
+.exam-card ul{
+    padding-left:18px;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.exam-card a{
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    transition:0.3s;
+}
+
+.exam-card a:hover{
+    background:#3b82f6;
+}
+
+/* ================= FORMS ================= */
+
+.form-block{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.form-block input,
+.form-block textarea{
+    flex:1;
+    min-width:220px;
+
+    background:#0f172a;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:16px;
+
+    padding:14px;
+
+    font-size:1rem;
+
+    outline:none;
+}
+
+.form-block textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+.form-block button{
+    border:none;
+
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.form-block button:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= ITEMS ================= */
+
+.items{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.item{
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    position:relative;
+}
+
+.item img{
+    width:100%;
+    max-height:400px;
+    object-fit:contain;
+    border-radius:14px;
+    margin-top:12px;
+}
+
+.delete{
+    position:absolute;
+    top:10px;
+    right:10px;
+
+    width:34px;
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    transition:0.3s;
+}
+
+.delete:hover{
+    background:#dc2626;
+    transform:scale(1.1);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#94a3b8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .banner h2{
+        font-size:2rem;
+    }
+
+    nav button{
+        width:100%;
+    }
+
+    .teacher-box{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .teacher-box img{
+        width:100%;
+        max-width:260px;
+        height:auto;
+    }
+
+    .form-block{
+        flex-direction:column;
+    }
+
+    .form-block button{
+        width:100%;
+    }
+
+    #countdown{
+        font-size:1.8rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    <h1>10 «Л»</h1>
+    <p>МБОУ СШ №61 • г. Ульяновск</p>
+</div>
+
+<nav>
+    <button class="tab-btn active" data-tab="home">Главная</button>
+    <button class="tab-btn" data-tab="schedule">Расписание</button>
+    <button class="tab-btn" data-tab="exam">ЕГЭ / ОГЭ</button>
+    <button class="tab-btn" data-tab="gallery">Галерея</button>
+    <button class="tab-btn" data-tab="homework">ДЗ</button>
+    <button class="tab-btn" data-tab="news">Объявления</button>
+</nav>
+
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="tab active">
+
+<div class="banner">
+    <h2>Добро пожаловать на сайт 10 «Л»</h2>
+    <p>МБОУ СШ №61 • 2026</p>
+</div>
+
+<div class="countdown-card">
+    <h2>До летних каникул осталось</h2>
+    <div id="countdown"></div>
+</div>
+
+<div class="card">
+
+<h2 class="section-title">Фото класса</h2>
+
+<div class="main-photo">
+    <img src="class_main.jpg" alt="Фото класса">
+</div>
+
+</div>
+
+<div class="card">
+
+<h2 class="section-title">Классный руководитель</h2>
+
+<div class="teacher-box">
+
+    <img src="teacher.jpg" alt="Учитель">
+
+    <div>
+        <h3>Чагаева Эльвира Гаязовна</h3>
+
+        <p>
+            Учитель русского языка и литературы.<br>
+            Классный руководитель 10 «Л».
+        </p>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+
+<section id="schedule" class="tab">
+
+<div class="card">
+
+<h2 class="section-title">Расписание</h2>
+
+<div class="schedule-grid">
+
+<div class="day-card">
+<h3>Понедельник</h3>
+<p class="date">30.03.2026</p>
+
+<div class="lesson empty">1 урок —</div>
+<div class="lesson">2 урок — Обществознание <span>105</span></div>
+<div class="lesson">3 урок — История <span>105</span></div>
+<div class="lesson">4 урок — Русский язык <span>314</span></div>
+<div class="lesson">5 урок — Физика <span>202</span></div>
+<div class="lesson">6 урок — Алгебра <span>102</span></div>
+<div class="lesson">7 урок — Алгебра <span>102</span></div>
+</div>
+
+<div class="day-card">
+<h3>Вторник</h3>
+<p class="date">31.03.2026</p>
+
+<div class="lesson empty">1 урок —</div>
+<div class="lesson">2 урок — История <span>310</span></div>
+<div class="lesson">3 урок — Химия <span>303</span></div>
+<div class="lesson">4 урок — Физ.культура</div>
+<div class="lesson">5 урок — Литература <span>314</span></div>
+<div class="lesson">6 урок — Ин.яз <span>105/304</span></div>
+<div class="lesson">7 урок — Геометрия <span>201</span></div>
+<div class="lesson">8 урок — Физика <span>202</span></div>
+</div>
+
+<div class="day-card">
+<h3>Среда</h3>
+<p class="date">01.04.2026</p>
+
+<div class="lesson empty">1 урок —</div>
+<div class="lesson">2 урок — Инд.проект <span>304</span></div>
+<div class="lesson">3 урок — Биология <span>308</span></div>
+<div class="lesson">4 урок — ОБЖР <span>101</span></div>
+<div class="lesson">5 урок — Обществознание <span>310</span></div>
+<div class="lesson">6 урок — Русский язык <span>314</span></div>
+<div class="lesson">7 урок — Алгебра <span>201</span></div>
+<div class="lesson">8 урок — Геометрия <span>201</span></div>
+</div>
+
+<div class="day-card">
+<h3>Четверг</h3>
+<p class="date">02.04.2026</p>
+
+<div class="lesson empty">1 урок —</div>
+<div class="lesson">2 урок — Физика <span>202</span></div>
+<div class="lesson">3 урок — Литература <span>314</span></div>
+<div class="lesson">4 урок — Физика <span>202</span></div>
+<div class="lesson">5 урок — Ин.яз <span>105/304</span></div>
+<div class="lesson">6 урок — Информатика <span>301</span></div>
+<div class="lesson">7 урок — Вероятность и статистика <span>201</span></div>
+<div class="lesson">8 урок — Ин.яз <span>-/304</span></div>
+</div>
+
+<div class="day-card">
+<h3>Пятница</h3>
+<p class="date">03.04.2026</p>
+
+<div class="lesson empty">1 урок —</div>
+<div class="lesson">2 урок — Информатика <span>301</span></div>
+<div class="lesson">3 урок — Алгебра <span>103</span></div>
+<div class="lesson">4 урок — Физ.культура</div>
+<div class="lesson">5 урок — География <span>302</span></div>
+<div class="lesson">6 урок — Геометрия <span>202</span></div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- ================= EXAM ================= -->
+
+<section id="exam" class="tab">
+
+<div class="card">
+
+<h2 class="section-title">Методический блок подготовки к ЕГЭ / ОГЭ</h2>
+
+<div class="exam-grid">
+
+<div class="exam-card">
+<h3>📘 Русский язык</h3>
+
+<ul>
+<li>Орфография</li>
+<li>Сочинение</li>
+<li>Тесты</li>
+<li>Практика ЕГЭ</li>
+</ul>
+
+<a href="#">Материалы</a>
+
+</div>
+
+<div class="exam-card">
+<h3>📐 Математика</h3>
+
+<ul>
+<li>Алгебра</li>
+<li>Геометрия</li>
+<li>Профиль</li>
+<li>Варианты</li>
+</ul>
+
+<a href="#">Материалы</a>
+
+</div>
+
+<div class="exam-card">
+<h3>🌍 Обществознание</h3>
+
+<ul>
+<li>Право</li>
+<li>Экономика</li>
+<li>Политика</li>
+<li>Тренировка</li>
+</ul>
+
+<a href="#">Материалы</a>
+
+</div>
+
+<div class="exam-card">
+<h3>⚛ Физика</h3>
+
+<ul>
+<li>Формулы</li>
+<li>Задачи</li>
+<li>Теория</li>
+<li>Практика</li>
+</ul>
+
+<a href="#">Материалы</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery" class="tab">
+
+<div class="card">
+
+<h2 class="section-title">Галерея</h2>
+
+<div class="form-block">
+<input type="text" id="galleryTitle" placeholder="Название фото">
+<input type="text" id="galleryImage" placeholder="Имя файла">
+<button onclick="addGallery()">Добавить</button>
+</div>
+
+<div id="galleryItems" class="items"></div>
+
+</div>
+
+</section>
+
+<!-- ================= HOMEWORK ================= -->
+
+<section id="homework" class="tab">
+
+<div class="card">
+
+<h2 class="section-title">Домашнее задание</h2>
+
+<div class="form-block">
+<textarea id="hwText" placeholder="Введите домашнее задание"></textarea>
+<button onclick="addHomework()">Добавить</button>
+</div>
+
+<div id="hwItems" class="items"></div>
+
+</div>
+
+</section>
+
+<!-- ================= NEWS ================= -->
+
+<section id="news" class="tab">
+
+<div class="card">
+
+<h2 class="section-title">Объявления</h2>
+
+<div class="form-block">
+<textarea id="newsText" placeholder="Введите объявление"></textarea>
+<button onclick="addNews()">Добавить</button>
+</div>
+
+<div id="newsItems" class="items"></div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 • 10 «Л» • МБОУ СШ №61
+</footer>
+
+<script>
+
+/* ================= TABS ================= */
+
+const buttons = document.querySelectorAll('.tab-btn');
+const tabs = document.querySelectorAll('.tab');
+
+buttons.forEach(button=>{
+
+    button.addEventListener('click',()=>{
+
+        buttons.forEach(btn=>btn.classList.remove('active'));
+        tabs.forEach(tab=>tab.classList.remove('active'));
+
+        button.classList.add('active');
+
+        document.getElementById(button.dataset.tab).classList.add('active');
+
+    });
+
+});
+
+/* ================= COUNTDOWN ================= */
+
+function updateCountdown(){
+
+    const holidayDate = new Date('2026-06-01T00:00:00');
+
+    const now = new Date();
+
+    const diff = holidayDate - now;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+
+    const hours = Math.floor(
+        (diff % (1000*60*60*24))
+        /
+        (1000*60*60)
+    );
+
+    const minutes = Math.floor(
+        (diff % (1000*60*60))
+        /
+        (1000*60)
+    );
+
+    const seconds = Math.floor(
+        (diff % (1000*60))
+        /
+        1000
+    );
+
+    document.getElementById('countdown').innerHTML =
+        `${days} дн. ${hours} ч. ${minutes} мин. ${seconds} сек.`;
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+/* ================= STORAGE ================= */
+
+let gallery = JSON.parse(localStorage.getItem('gallery')) || [];
+let homework = JSON.parse(localStorage.getItem('homework')) || [];
+let news = JSON.parse(localStorage.getItem('news')) || [];
+
+/* ================= GALLERY ================= */
+
+function saveGallery(){
+    localStorage.setItem('gallery', JSON.stringify(gallery));
+}
+
+function renderGallery(){
+
+    const container = document.getElementById('galleryItems');
+
+    container.innerHTML = '';
+
+    gallery.forEach((item,index)=>{
+
+        container.innerHTML += `
+        <div class="item">
+            <button class="delete" onclick="deleteGallery(${index})">×</button>
+
+            <h3>${item.title}</h3>
+
+            <img src="${item.image}" alt="">
+        </div>
+        `;
+
+    });
+
+}
+
+function addGallery(){
+
+    const title = document.getElementById('galleryTitle').value.trim();
+    const image = document.getElementById('galleryImage').value.trim();
+
+    if(!title || !image){
+        alert('Заполните поля');
+        return;
+    }
+
+    gallery.push({
+        title,
+        image
+    });
+
+    saveGallery();
+
+    renderGallery();
+
+    document.getElementById('galleryTitle').value = '';
+    document.getElementById('galleryImage').value = '';
+
+}
+
+function deleteGallery(index){
+
+    gallery.splice(index,1);
+
+    saveGallery();
+
+    renderGallery();
+
+}
+
+/* ================= HOMEWORK ================= */
+
+function saveHomework(){
+    localStorage.setItem('homework', JSON.stringify(homework));
+}
+
+function renderHomework(){
+
+    const container = document.getElementById('hwItems');
+
+    container.innerHTML = '';
+
+    homework.forEach((item,index)=>{
+
+        container.innerHTML += `
+        <div class="item">
+            <button class="delete" onclick="deleteHomework(${index})">×</button>
+            <p>${item}</p>
+        </div>
+        `;
+
+    });
+
+}
+
+function addHomework(){
+
+    const text = document.getElementById('hwText').value.trim();
+
+    if(!text){
+        alert('Введите текст');
+        return;
+    }
+
+    homework.push(text);
+
+    saveHomework();
+
+    renderHomework();
+
+    document.getElementById('hwText').value = '';
+
+}
+
+function deleteHomework(index){
+
+    homework.splice(index,1);
+
+    saveHomework();
+
+    renderHomework();
+
+}
+
+/* ================= NEWS ================= */
+
+function saveNews(){
+    localStorage.setItem('news', JSON.stringify(news));
+}
+
+function renderNews(){
+
+    const container = document.getElementById('newsItems');
+
+    container.innerHTML = '';
+
+    news.forEach((item,index)=>{
+
+        container.innerHTML += `
+        <div class="item">
+            <button class="delete" onclick="deleteNews(${index})">×</button>
+            <p>${item}</p>
+        </div>
+        `;
+
+    });
+
+}
+
+function addNews(){
+
+    const text = document.getElementById('newsText').value.trim();
+
+    if(!text){
+        alert('Введите текст');
+        return;
+    }
+
+    news.push(text);
+
+    saveNews();
+
+    renderNews();
+
+    document.getElementById('newsText').value = '';
+
+}
+
+function deleteNews(index){
+
+    news.splice(index,1);
+
+    saveNews();
+
+    renderNews();
+
+}
+
+/* ================= LOAD ================= */
+
+renderGallery();
+renderHomework();
+renderNews();
+
+</script>
+
+</body>
+</html>
