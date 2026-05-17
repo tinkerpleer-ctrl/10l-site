@@ -96,7 +96,8 @@ nav button.active{
 main{
     width:94%;
     max-width:1450px;
-    margin:35px auto;
+    margin:0 auto;
+    padding-top:220px;
 }
 
 .tab{
@@ -483,14 +484,59 @@ footer{
 
 /* ================= MOBILE ================= */
 
-@media(max-width:768px){
+/* ================= MOBILE FIX ================= */
 
-    .banner h2{
-        font-size:2rem;
+@media(max-width:900px){
+
+    header{
+        position:relative;
+        padding:18px;
+    }
+
+    main{
+        padding-top:20px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:10px;
     }
 
     nav button{
         width:100%;
+        font-size:0.95rem;
+        padding:14px;
+    }
+
+    .banner{
+        padding:35px 20px;
+    }
+
+    .banner h2{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .banner p{
+        font-size:1rem;
+    }
+
+    .countdown-card{
+        padding:25px 15px;
+    }
+
+    #countdown{
+        font-size:1.4rem;
+        line-height:1.5;
+    }
+
+    .card{
+        padding:20px;
+        border-radius:24px;
+    }
+
+    .section-title{
+        font-size:1.6rem;
     }
 
     .teacher-box{
@@ -504,44 +550,48 @@ footer{
         height:auto;
     }
 
+    .schedule-grid{
+        grid-template-columns:1fr;
+    }
+
+    .day-card{
+        padding:18px;
+    }
+
+    .lesson{
+        font-size:0.95rem;
+        line-height:1.6;
+    }
+
+    .lesson span{
+        float:none;
+        display:block;
+        margin-top:4px;
+    }
+
+    .exam-grid{
+        grid-template-columns:1fr;
+    }
+
     .form-block{
         flex-direction:column;
     }
 
+    .form-block input,
+    .form-block textarea,
     .form-block button{
         width:100%;
     }
 
-    #countdown{
-        font-size:1.8rem;
+    .main-photo img{
+        max-height:320px;
+    }
+
+    footer{
+        font-size:0.9rem;
     }
 
 }
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-    <h1>10 «Л»</h1>
-    <p>МБОУ СШ №61 • г. Ульяновск</p>
-</div>
-
-<nav>
-    <button class="tab-btn active" data-tab="home">Главная</button>
-    <button class="tab-btn" data-tab="schedule">Расписание</button>
-    <button class="tab-btn" data-tab="exam">ЕГЭ / ОГЭ</button>
-    <button class="tab-btn" data-tab="gallery">Галерея</button>
-    <button class="tab-btn" data-tab="homework">ДЗ</button>
-    <button class="tab-btn" data-tab="news">Объявления</button>
-</nav>
-
-</header>
-
-<main>
 
 <!-- ================= HOME ================= -->
 
